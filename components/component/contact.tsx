@@ -22,6 +22,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Contact() {
   return (
@@ -60,7 +61,7 @@ export function Contact() {
               <div className="grid gap-2">
                 <Label htmlFor="product-image">Product Image</Label>
                 <div className="grid grid-cols-2 gap-4">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     width={300}
                     height={200}
