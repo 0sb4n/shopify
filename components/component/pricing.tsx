@@ -11,7 +11,7 @@ export function Pricing() {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="flex items-center justify-between h-16 px-4 lg:px-6 border-b">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <img
+          <Image
             src="/placeholder.svg"
             alt="Acme Services Logo"
             width={32}

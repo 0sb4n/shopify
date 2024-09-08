@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
+import Image from "next/image"
 export function About() {
   const pathName = usePathname()
   return (
@@ -11,7 +12,7 @@ export function About() {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="flex items-center justify-between h-16 px-4 lg:px-6 border-b">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <img
+          <Image
             src="/placeholder.svg"
             alt="Acme Services Logo"
             width={32}
@@ -56,7 +57,7 @@ return(
               </div>
               <div className="grid gap-6">
                 <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Our Team"
                     width={64}
@@ -75,7 +76,7 @@ return(
                   </Button>
                 </div>
                 <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Our Approach"
                     width={64}
@@ -94,7 +95,7 @@ return(
                   </Button>
                 </div>
                 <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Our Values"
                     width={64}
