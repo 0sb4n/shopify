@@ -12,21 +12,14 @@ export function About() {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="flex items-center justify-between h-16 px-4 lg:px-6 border-b">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <Image
-            src="/placeholder.svg"
-            alt="Acme Services Logo"
-            width={32}
-            height={32}
-            className="h-6 w-6"
-            style={{ aspectRatio: "32/32", objectFit: "cover" }}
-          />
-          <span className="text-lg font-semibold">Acme Services</span>
+        <MountainIcon className="h-8 w-8" />
+          <span className="text-lg font-semibold">TrustedRepairs</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
 {navLink.map((link)=>{
 const isActive =link.route ===pathName
 return(
-          <Link href={link.route} className={`text-sm font-medium hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
+          <Link href={link.route} key={link.key} className={`text-sm font-medium hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
             {link.label}
           </Link>
 ) 
@@ -133,5 +126,12 @@ return(
         </nav>
       </footer>
     </div>
+  )
+}
+function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+   
+<svg {...props} width={props.width} height={props.height} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18,9.5V8H17V7a2,2,0,0,0-2-2H4A2,2,0,0,0,2,7v7a2,2,0,0,0,2,2H15a2,2,0,0,0,2-2V13h1V11.5h4v-2ZM14,14H5V13h9Zm0-2H5V11h9Zm0-2H5V9h9Zm0-2H5V7h9ZM3,17H16v2H3Z"/><rect width="24" height="24" fill="none"/></svg>
+    
   )
 }

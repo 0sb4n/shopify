@@ -101,7 +101,7 @@ export function Contact() {
   )
 }
 
-function LocateIcon(props:any) {
+function LocateIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -125,7 +125,7 @@ function LocateIcon(props:any) {
 }
 
 
-function MailIcon(props:any) {
+function MailIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -146,7 +146,7 @@ function MailIcon(props:any) {
 }
 
 
-function PhoneIcon(props:any) {
+function PhoneIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -166,7 +166,7 @@ function PhoneIcon(props:any) {
 }
 
 
-function UploadIcon(props:any) {
+function UploadIcon(props: React.SVGProps<SVGSVGElement>){
   return (
     <svg
       {...props}
