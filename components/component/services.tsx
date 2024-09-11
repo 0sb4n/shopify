@@ -38,7 +38,7 @@ return(
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   Discover our comprehensive suite of professional services designed to help your business thrive. From
-                  strategy to execution, we've got you covered.
+                  strategy to execution, we&rsquo;ve got you covered.
                 </p>
               </div>
               <div className="grid gap-6">

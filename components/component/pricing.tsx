@@ -37,7 +37,7 @@ return(
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Pricing</h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   Discover our flexible pricing options tailored to meet the needs of businesses of all sizes. Whether
-                  you're a small startup or a large enterprise, we have a plan that will fit your budget and help you
+                  you&rsquo;re a small startup or a large enterprise, we have a plan that will fit your budget and help you
                   achieve your goals.
                 </p>
               </div>

@@ -20,7 +20,7 @@ export function Component() {
 {navLink.map((link)=>{
 const isActive =link.route ===pathName
 return(
-          <Link href={link.route} className={`text-sm font-medium hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
+          <Link href={link.route} key={link.key} className={`text-sm font-medium hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
             {link.label}
           </Link>
 ) 
@@ -41,7 +41,7 @@ return(
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Discover our comprehensive suite of services designed to help your business thrive. From strategy to
-                    execution, we've got you covered.
+                    execution we&rsquo;ve got you covered.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
