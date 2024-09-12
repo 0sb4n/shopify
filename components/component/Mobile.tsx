@@ -4,14 +4,12 @@ import { usePathname } from 'next/navigation'
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
+    
     SheetTrigger,
   } from "@/components/ui/sheet"
 import { navLink } from '@/Constants'
-import { Button } from '../ui/button'
-const Mobile = (props: any) => {
+
+const Mobile = () => {
     const pathName = usePathname();
   return (
     <>
