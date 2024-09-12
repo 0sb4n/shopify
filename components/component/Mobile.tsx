@@ -22,9 +22,9 @@ const Mobile = () => {
 {navLink.map((link)=>{
     const isActive = link.route === pathName
     return(
-<ul className='w-full mt-3 '>
+<ul className='w-full mt-3 ' key={link.key}>
     <li >
-        <Link href={link.route} key={link.key} className={`w-full block text-black text-lg p-2 ${isActive ? 'border-[1px] rounded-lg': 'border-none'}`}  >
+        <Link href={link.route}  className={`w-full block text-black text-lg p-2 ${isActive ? 'border-[1px] rounded-lg': 'border-none'}`}  >
         {link.label}</Link>
     </li>
 </ul>
