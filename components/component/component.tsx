@@ -7,6 +7,9 @@ import { Card } from "@/components/ui/card"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 
+import Mobile from "./Mobile"
+
+
 export function Component() {
   const pathName = usePathname()
   return (
@@ -28,7 +31,8 @@ return(
 })}
         
         </nav>
-        <Button>Get Started</Button>
+      <Mobile/>
+
       </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-">

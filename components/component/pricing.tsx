@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
+import Mobile from "./Mobile"
 
 export function Pricing() {
   const pathName =usePathname()
@@ -27,7 +28,7 @@ return(
 })}
         
         </nav>
-        <Button>Get Started</Button>
+        <Mobile/>
       </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">

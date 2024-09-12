@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 import Image from "next/image"
+import Mobile from "./Mobile"
 export function About() {
   const pathName = usePathname()
   return (
@@ -27,7 +28,7 @@ return(
 })}
         
         </nav>
-        <Button>Get Started</Button>
+        <Mobile/>
       </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -50,14 +51,7 @@ return(
               </div>
               <div className="grid gap-6">
                 <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Our Team"
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                    style={{ aspectRatio: "64/64", objectFit: "cover" }}
-                  />
+                <MountainIcon className="h-8 w-8" />
                   <h3 className="text-xl font-bold">Our Team</h3>
                   <p className="text-muted-foreground">
                     At the heart of Acme Services are our talented and dedicated professionals, each with a unique set
@@ -69,14 +63,7 @@ return(
                   </Button>
                 </div>
                 <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Our Approach"
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                    style={{ aspectRatio: "64/64", objectFit: "cover" }}
-                  />
+                
                   <h3 className="text-xl font-bold">Our Approach</h3>
                   <p className="text-muted-foreground">
                     We believe in a collaborative and data-driven approach to problem-solving. By working closely with
