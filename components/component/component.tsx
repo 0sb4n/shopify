@@ -44,7 +44,7 @@ return(
                   Power Up Your Home with Our Expert Services
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Explore Our Full Range of Services to Keep Your Home Running Smoothly. From Repairs to Maintenance, We've Got You Covered.
+                  Explore Our Full Range of Services to Keep Your Home Running Smoothly. From Repairs to Maintenance, We&apos;ve Got You Covered.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
