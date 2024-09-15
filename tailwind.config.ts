@@ -55,7 +55,10 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		  boxShadow: {
+			'dark-inner': 'inset 0 4px 10px rgba(0, 0, 0, 0.4)', // Custom darker inner shadow
+		  },
   	}
   },
   plugins: [require("tailwindcss-animate")],

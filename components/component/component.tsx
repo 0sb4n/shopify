@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
-
+import { cardsData } from "@/Constants"
 import Mobile from "./Mobile"
 
 
@@ -35,17 +35,16 @@ return(
 
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-">
+        <section className="w-full py-6 md:py-24 lg:py-0">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_550px] lg:gap-12 xl:grid-cols-[1fr_650px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Elevate Your Business with Our Services
+                  Power Up Your Home with Our Expert Services
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Discover our comprehensive suite of services designed to help your business thrive. From strategy to
-                    execution we&rsquo;ve got you covered.
+                  Explore Our Full Range of Services to Keep Your Home Running Smoothly. From Repairs to Maintenance, We've Got You Covered.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -80,205 +79,93 @@ return(
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              <Card className="p-6 space-y-4">
+            <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {
+                cardsData.map((plan,index)=>{
+                  return(
+
+              <Card key={index} className="p-6 space-y-4  shadow-xl">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Starter</h3>
-                  <div className="text-4xl font-bold">$19</div>
+                  <h3 className="text-xl font-semibold">{plan.title}</h3>
+                  <div className="text-3xl font-bold">{plan.price}</div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-muted-foreground">Perfect for small businesses and startups.</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>
+                  <p className="text-muted-foreground">{plan.description}</p>
+                  
+                  <ul className="space-y-1 text-muted-foreground" >
+                  {plan.features.map((feature,i)=>{
+                    return(
+
+                    <li key={i}>
                       <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      5 GB Storage
+                      {feature}
                     </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      1 User
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Basic Support
-                    </li>
-                  </ul>
+                   
+                  
+                    )
+                  })}</ul>
                 </div>
-                <Button>Get Started</Button>
+                <Button>{plan.cta}</Button>
               </Card>
-              <Card className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Professional</h3>
-                  <div className="text-4xl font-bold">$49</div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Ideal for growing businesses and teams.</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      20 GB Storage
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      5 Users
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Priority Support
-                    </li>
-                  </ul>
-                </div>
-                <Button>Get Started</Button>
-              </Card>
-              <Card className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Enterprise</h3>
-                  <div className="text-4xl font-bold">$99</div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Tailored for large organizations and teams.</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Unlimited Storage
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Unlimited Users
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Dedicated Support
-                    </li>
-                  </ul>
-                </div>
-                <Button>Get Started</Button>
-              </Card>
+                  )
+                })
+              }
+           
             </div>
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              <Card className="p-6 space-y-4">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+             {
+              cardsData.map((data,index)=>{
+                return(
+
+              <Card key={index} className="p-6 space-y-4 shadow-2xl">
                 <div className="grid grid-cols-2 gap-4">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 1"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 2"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
+                  {
+                   data.images.map((image,i)=>{
+                    return(
+
+                      <Image key={i}
+                        src={image}
+                        alt="Image 1"
+                        width={300}
+                        height={300}
+                        className="aspect-square object-cover rounded-md"
+                      />
+                    )
+                   })
+                  }
+                 
                 </div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Starter</h3>
-                  <div className="text-4xl font-bold">$19</div>
+                  <h3 className="text-xl font-semibold">{data.title}</h3>
+                  <div className="text-4xl font-bold">{data.price}</div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-muted-foreground">Perfect for small businesses and startups.</p>
+                  <p className="text-muted-foreground">{data.description}</p>
+                  <p className="text-muted-foreground">{data.description}</p>
                   <ul className="space-y-1 text-muted-foreground">
-                    <li>
+                   {
+                    data.features.map((desc,i)=>{
+                      return(
+
+                    <li  key={i}>
                       <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      5 GB Storage
+                    {desc}
                     </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      1 User
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Basic Support
-                    </li>
+                      )
+                    })
+                   }
+                  
                   </ul>
                 </div>
-                <Button>Get Started</Button>
+                <Button>{data.cta}</Button>
               </Card>
-              <Card className="p-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 1"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 2"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Professional</h3>
-                  <div className="text-4xl font-bold">$49</div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Ideal for growing businesses and teams.</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      20 GB Storage
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      5 Users
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Priority Support
-                    </li>
-                  </ul>
-                </div>
-                <Button>Get Started</Button>
-              </Card>
-              <Card className="p-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 1"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Image 2"
-                    width={300}
-                    height={300}
-                    className="aspect-square object-cover rounded-md"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">Enterprise</h3>
-                  <div className="text-4xl font-bold">$99</div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Tailored for large organizations and teams.</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Unlimited Storage
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Unlimited Users
-                    </li>
-                    <li>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      Dedicated Support
-                    </li>
-                  </ul>
-                </div>
-                <Button>Get Started</Button>
-              </Card>
+                )
+              })
+             }
             </div>
           </div>
         </section>
