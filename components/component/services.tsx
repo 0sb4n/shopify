@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
-import { navLink } from "@/Constants"
+import { navLink, serviceSection } from "@/Constants"
 import Image from "next/image"
 import Mobile from "./Mobile"
 export function Services() {
@@ -42,95 +42,64 @@ return(
                   strategy to execution, we&rsquo;ve got you covered.
                 </p>
               </div>
-              <div className="grid gap-6">
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Strategy Consulting"
+          
+         <div className="grid gap-6">{
+          serviceSection.map((data,index)=>{
+            return(
+
+         <div className="bg-muted rounded-lg p-6 shadow-lg" key={index}>
+                  <img
+                    src={data.image}
+                    alt="Innovative Solutions"
                     width={64}
                     height={64}
                     className="mb-4"
                     style={{ aspectRatio: "64/64", objectFit: "cover" }}
                   />
-                  <h3 className="text-xl font-bold">Strategy Consulting</h3>
-                  <p className="text-muted-foreground">
-                    Our experienced consultants will work with you to develop a comprehensive business strategy tailored
-                    to your unique needs.
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Learn More
-                  </Button>
+                  <h3 className="text-xl font-bold">{data.category}</h3>
+                 <div className="flex justify-center gap-2 items-center mt-2">
+                  {
+                    data.services.map((service,index)=>{
+                    return(
+
+                  <div className="p-2 shadow-2xl bg-white rounded-md" key={index}>
+                    <h4 className="text-lg font-bold">{service.name}</h4>
+                    <p className="text-sm font-medium">{service.description}</p>
+                  </div>
+                    )
+                  })
+                    }
+                 
+                 </div>
                 </div>
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Digital Transformation"
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                    style={{ aspectRatio: "64/64", objectFit: "cover" }}
-                  />
-                  <h3 className="text-xl font-bold">Digital Transformation</h3>
-                  <p className="text-muted-foreground">
-                    Leverage the power of technology to streamline your operations and drive innovation in your
-                    business.
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Learn More
-                  </Button>
-                </div>
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="Marketing Solutions"
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                    style={{ aspectRatio: "64/64", objectFit: "cover" }}
-                  />
-                  <h3 className="text-xl font-bold">Marketing Solutions</h3>
-                  <p className="text-muted-foreground">
-                    Our marketing experts will help you reach your target audience and increase brand awareness through
-                    data-driven strategies.
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Learn More
-                  </Button>
-                </div>
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="IT Consulting"
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                    style={{ aspectRatio: "64/64", objectFit: "cover" }}
-                  />
-                  <h3 className="text-xl font-bold">IT Consulting</h3>
-                  <p className="text-muted-foreground">
-                    Optimize your IT infrastructure and ensure your technology is aligned with your business goals.
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-            </div>
+            )
+          })
+          }
+
+         </div>
+                
+              
+            
+          </div>
           </div>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">&copy; 2024 Acme Services. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+        <Link href="https://wa.me/+917669145885"  className="text-xs hover:underline underline-offset-4" prefetch={false}>
+            <Image src='/assets/icons/whatapp.svg' alt="whatsapp" height={20} width={20}></Image>
+          </Link>
+          <Link href="https://www.instagram.com/trustedrepairs/" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+            <Image src='/assets/icons/insta.svg' alt="whatsapp" height={20} width={20}></Image>
+          </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Terms of Service
           </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Privacy
           </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-            Refrel
-          </Link>
+        
         </nav>
       </footer>
     </div>

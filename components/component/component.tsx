@@ -49,14 +49,14 @@ return(
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link
-                    href="#"
+                    href="/services"
                     className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
                     Explore Services
                   </Link>
                   <Link
-                    href="#"
+                    href="/Contact"
                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
@@ -173,6 +173,12 @@ return(
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">&copy; 2024 Acme Services. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link href="https://wa.me/+917669145885"  className="text-xs hover:underline underline-offset-4" prefetch={false}>
+            <Image src='/assets/icons/whatapp.svg' alt="whatsapp" height={20} width={20}></Image>
+          </Link>
+          <Link href="https://www.instagram.com/trustedrepairs/" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+            <Image src='/assets/icons/insta.svg' alt="whatsapp" height={20} width={20}></Image>
+          </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Terms of Service
           </Link>
@@ -185,7 +191,7 @@ return(
   )
 }
 
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
+function CheckIcon(props:any) {
   return (
     <svg
       {...props}
@@ -212,3 +218,4 @@ function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
     
   )
 }
+

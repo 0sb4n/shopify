@@ -94,3 +94,63 @@ export const cardsData=[
 
       ]}
     ]
+    export const serviceSection=[
+      {
+        "image":"/assets/icons/home.svg",
+        "category": "Home Appliances Repair",
+        "services": [
+          {
+            "name": "Fan Repair",
+            "description": "Expert repair services for all types of home fans."
+          },
+          {
+            "name": "Air Conditioner Repair",
+            "description": "Servicing and repair of residential air conditioning units."
+          },
+          {
+            "name": "Refrigerator Repair",
+            "description": "Repair and maintenance services for home refrigerators."
+          }
+        ]
+      },
+      {
+        "image":"/assets/icons/bank.svg",
+        "category": "Commercial Appliances Repair",
+        "services": [
+          {
+            "name": "Air Conditioner Repair",
+            "description": "Servicing and repair of commercial air conditioning systems."
+          },
+          {
+            "name": "Refrigeration Systems Repair",
+            "description": "Repair services for commercial refrigeration units."
+          },
+          {
+            "name": "Generator Repair",
+            "description": "Maintenance and repair of commercial power generators."
+          }
+        ]
+      }
+,
+{
+  "image":"/assets/icons/industry.svg",
+  "category": "Industrial Appliances Repair",
+  "services": [
+    {
+      "name": "Three-Phase Motor Repair",
+      "description": "Expert repair and servicing of industrial three-phase motors."
+    },
+    {
+      "name": "Generator Repair",
+      "description": "Repair and maintenance services for industrial power generators."
+    },
+    {
+      "name": "Machinery Maintenance",
+      "description": "Comprehensive maintenance services for industrial machinery."
+    }
+  ]
+}
+
+
+      
+    ]

@@ -47,7 +47,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative mx-auto max-w-md rounded-lg  p-6 shadow-2xl transition-all duration-300 hover:scale-105">
+    <div className="relative mx-auto max-w-md rounded-lg  p-6l transition-all duration-300 hover:scale-105 shadow-2xl p-4">
       <h3 className="mb-4 text-2xl font-semibold">TrustedRepairs request form</h3>
 <p className="text-sm font-medium text-slate-700 mb-4">Fill out the form to request electric services or products. Upload an image if needed.</p>
       <form className="space-y-4" onSubmit={handleSubmit}>
