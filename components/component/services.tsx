@@ -48,7 +48,7 @@ return(
             return(
 
          <div className="bg-muted rounded-lg p-6 shadow-lg" key={index}>
-                  <img
+                  <Image
                     src={data.image}
                     alt="Innovative Solutions"
                     width={64}
