@@ -35,11 +35,11 @@ return(
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Our Professional Services
+                Our Professional Electric Services
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Discover our comprehensive suite of professional services designed to help your business thrive. From
-                  strategy to execution, we&rsquo;ve got you covered.
+               
+                We provide expert electrical services for both home appliances, like fans, ACs, and washing machines, as well as commercial equipment, including motors and generators. Whether for your home or business, count on us for reliable, efficient service.
                 </p>
               </div>
           
@@ -85,7 +85,7 @@ return(
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Acme Services. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground">&copy; 2024 trustedRepairs. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
         <Link href="https://wa.me/+917669145885"  className="text-xs hover:underline underline-offset-4" prefetch={false}>
             <Image src='/assets/icons/whatapp.svg' alt="whatsapp" height={20} width={20}></Image>

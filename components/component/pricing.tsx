@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
-import { navLink } from "@/Constants"
+import { navLink, pricingData } from "@/Constants"
 import Image from "next/image"
 import Mobile from "./Mobile"
 
@@ -38,79 +38,47 @@ return(
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Pricing</h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Discover our flexible pricing options tailored to meet the needs of businesses of all sizes. Whether
-                  you&rsquo;re a small startup or a large enterprise, we have a plan that will fit your budget and help you
-                  achieve your goals.
+                
+                Explore our flexible pricing options designed for all your electrical service needs. Whether it’s home appliance repairs or commercial equipment maintenance, we offer affordable plans to fit your budget, ensuring high-quality service without compromise.
                 </p>
               </div>
               <div className="grid gap-6">
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <h3 className="text-xl font-bold">Starter</h3>
-                  <p className="text-4xl font-bold my-4">$49/mo</p>
-                  <p className="text-muted-foreground">Perfect for small businesses and freelancers.</p>
-                  <ul className="space-y-2 my-4">
+                {
+                  pricingData.map((data,index)=>{
+                    return(
+
+                <div className="bg-muted rounded-lg p-6 shadow-lg" key={index}>
+                  <h3 className="text-xl font-bold">{data.plan_name}</h3>
+                  <p className="text-4xl font-bold my-4">{data.price}</p>
+                  <p className="text-muted-foreground">{data.description}</p>
+                  {
+                    data.features.map((feature,index)=>{
+                      return(
+
+                  <ul className="space-y-2 my-4" key={index}>
                     <li className="flex items-center gap-2">
                       <CheckIcon className="w-4 h-4 text-primary" />
-                      Up to 5 users
+                     {feature}
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      10GB storage
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Basic support
-                    </li>
+                   
                   </ul>
-                  <Button className="w-full">Get Started</Button>
+                      )
+                    })
+                  }
+                  <Button className="w-full">{data.action
+                  }</Button>
                 </div>
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <h3 className="text-xl font-bold">Pro</h3>
-                  <p className="text-4xl font-bold my-4">$99/mo</p>
-                  <p className="text-muted-foreground">Ideal for growing businesses and teams.</p>
-                  <ul className="space-y-2 my-4">
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Up to 25 users
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      50GB storage
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Priority support
-                    </li>
-                  </ul>
-                  <Button className="w-full">Get Started</Button>
-                </div>
-                <div className="bg-muted rounded-lg p-6 shadow-lg">
-                  <h3 className="text-xl font-bold">Enterprise</h3>
-                  <p className="text-4xl font-bold my-4">$499/mo</p>
-                  <p className="text-muted-foreground">Tailored for large organizations and custom needs.</p>
-                  <ul className="space-y-2 my-4">
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Unlimited users
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Unlimited storage
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckIcon className="w-4 h-4 text-primary" />
-                      Dedicated support
-                    </li>
-                  </ul>
-                  <Button className="w-full">Contact Sales</Button>
-                </div>
+                    )
+                  })
+                }
+               
               </div>
             </div>
           </div>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Acme Services. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground">&copy; 2024 trustedRepairs. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
         <Link href="https://wa.me/+917669145885"  className="text-xs hover:underline underline-offset-4" prefetch={false}>
             <Image src='/assets/icons/whatapp.svg' alt="whatsapp" height={20} width={20}></Image>

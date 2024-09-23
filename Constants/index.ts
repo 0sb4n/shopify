@@ -149,8 +149,73 @@ export const cardsData=[
       "description": "Comprehensive maintenance services for industrial machinery."
     }
   ]
-}
+}]
 
 
-      
-    ]
+export const pricingData = [
+  {
+    "plan_name": "Starter",
+    "price": "₹49/Service",
+    "description": "Ideal for basic home appliance repairs such as fans, ACs, and washing machines.",
+    "features": [
+      "Single service",
+      "Includes inspection and minor repairs",
+      "Standard support"
+    ],
+    "action": "Book Now"
+  },
+  {
+    "plan_name": "Home Care",
+    "price": "₹199/Month",
+    "description": "Perfect for regular maintenance of multiple home appliances.",
+    "features": [
+      "Up to 3 appliances",
+      "Monthly check-ups and cleaning",
+      "Priority support"
+    ],
+    "action": "Get Started"
+  },
+  {
+    "plan_name": "Business Plus",
+    "price": "₹499/Month",
+    "description": "Designed for small businesses needing commercial appliance maintenance.",
+    "features": [
+      "Motor and generator servicing",
+      "2 visits per month",
+      "24/7 emergency support"
+    ],
+    "action": "Subscribe Now"
+  },
+  {
+    "plan_name": "Industrial Pro",
+    "price": "Custom Pricing",
+    "description": "Tailored for large-scale industrial appliance servicing.",
+    "features": [
+      "Customized service plans for motors, generators, and heavy-duty equipment",
+      "On-demand visits and repairs",
+      "Dedicated technical support"
+    ],
+    "action": "Contact Us"
+  }
+]
+export const about = [
+  {
+    "image":"/assets/icons/home.svg",
+    "role": "Home Appliance Technicians",
+    "description": "Experts in repairing home appliances like fans, ACs, and washing machines, providing efficient and reliable service."
+  },
+  {
+    "image":"/assets/icons/motor.svg",
+    "role": "Commercial Equipment Specialists",
+    "description": "Focused on commercial appliances like motors and generators, ensuring business equipment stays in top condition."
+  },
+  {
+    "image":"/assets/icons/industry.svg",
+    "role": "Industrial Service Experts",
+    "description": "Specialized in industrial-grade electrical systems, delivering robust solutions for heavy-duty equipment."
+  },
+  {"image":"/assets/icons/customer.svg",
+    "role": "Customer Care Team",
+    "description": "Dedicated to providing seamless service, handling client queries and updates with professionalism."
+  }
+]
