@@ -61,8 +61,9 @@ return(
                   {
                     data.services.map((service,index)=>{
                     return(
-
+                  
                   <div className="p-2 shadow-2xl bg-white rounded-md" key={index}>
+                    <Image src={service.image} alt="icon" height={26} width={26}/>
                     <h4 className="text-lg font-bold">{service.name}</h4>
                     <p className="text-sm font-medium">{service.description}</p>
                   </div>

@@ -99,17 +99,17 @@ export const cardsData=[
         "image":"/assets/icons/home.svg",
         "category": "Home Appliances Repair",
         "services": [
-          {
+          { "image":"assets/icons/fan.svg",
             "name": "Fan Repair",
             "description": "Expert repair services for all types of home fans."
           },
-          {
+          { "image":"assets/icons/air-conditioning.svg",
             "name": "Air Conditioner Repair",
             "description": "Servicing and repair of residential air conditioning units."
           },
-          {
-            "name": "Refrigerator Repair",
-            "description": "Repair and maintenance services for home refrigerators."
+          { "image":"assets/icons/washing-machine.svg",
+            "name":"washing machine",
+            "description": "Repair and maintenance services for home washing machine"
           }
         ]
       },
@@ -118,14 +118,15 @@ export const cardsData=[
         "category": "Commercial Appliances Repair",
         "services": [
           {
-            "name": "Air Conditioner Repair",
-            "description": "Servicing and repair of commercial air conditioning systems."
+            "image":"assets/icons/motor.svg",
+            "name": "induction motor",
+            "description": "Servicing and repair of commercial motor"
           },
-          {
+          { "image":"assets/icons/air-conditioning.svg",
             "name": "Refrigeration Systems Repair",
             "description": "Repair services for commercial refrigeration units."
           },
-          {
+          { "image":"assets/icons/electric.svg",
             "name": "Generator Repair",
             "description": "Maintenance and repair of commercial power generators."
           }
@@ -136,15 +137,15 @@ export const cardsData=[
   "image":"/assets/icons/industry.svg",
   "category": "Industrial Appliances Repair",
   "services": [
-    {
+    { "image":"assets/icons/motor.svg",
       "name": "Three-Phase Motor Repair",
       "description": "Expert repair and servicing of industrial three-phase motors."
     },
-    {
+    { "image":"assets/icons/electric.svg",
       "name": "Generator Repair",
       "description": "Repair and maintenance services for industrial power generators."
     },
-    {
+    { "image":"assets/icons/machinery.svg",
       "name": "Machinery Maintenance",
       "description": "Comprehensive maintenance services for industrial machinery."
     }
