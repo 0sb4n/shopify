@@ -6,11 +6,13 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { formData } from "@/Constants";
+import Loader from "./Loader";
 
 export default function Contact() {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
+  const [isloading,setIsLoading]=useState(false);
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -42,12 +44,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     // Handle form submission, including the uploaded image.
-    console.log(image); // This will log the image file.
+    // console.log(image); // This will log the image file.
   };
 
   return (
     <div className="relative mx-auto max-w-md rounded-lg  p-6l transition-all duration-300 hover:scale-105 shadow-2xl p-4">
+    {isloading && <Loader/>}
       <h3 className="mb-4 text-2xl font-semibold">TrustedRepairs request form</h3>
 <p className="text-sm font-medium text-slate-700 mb-4">Fill out the form to request electric services or products. Upload an image if needed.</p>
       <form className="space-y-4" onSubmit={handleSubmit}>
@@ -124,13 +128,14 @@ export default function Contact() {
             onDragLeave={handleDragLeave}
           >
             {imagePreview ? (
-              <Image src={imagePreview} alt="Preview" className="max-h-32 object-contain mb-2" />
+              <Image src={imagePreview} alt="Preview" className="max-h-32 object-contain mb-2"  height={56} width={56}/>
             ) : (
               <div className="space-y-1 text-sm text-primary-foreground">
                 <p>Drag and drop your image here</p>
                 <p>or</p>
                 <input id="image" type="file" accept="image/*" onChange={handleImageUpload} hidden />
-                <Button variant="secondary" onClick={() => document.getElementById("image")?.click()}>
+                <Button variant="secondary" onClick={(e) =>{e.preventDefault();
+                  document.getElementById("image")?.click()} }>
                   Select a file
                 </Button>
               </div>
@@ -138,7 +143,7 @@ export default function Contact() {
           </div>
         </div>
         <div className="flex justify-end">
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isloading} >{isloading ? "Submitting..." :"Submit"}</Button>
         </div>
       </form>
     </div>
