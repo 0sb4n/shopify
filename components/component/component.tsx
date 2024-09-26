@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 import { cardsData } from "@/Constants"
 import Mobile from "./Mobile"
-import Loader from "./Loader"
+
 
 
 export function Component() {

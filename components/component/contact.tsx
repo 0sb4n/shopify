@@ -46,7 +46,7 @@ export default function Contact() {
     e.preventDefault();
     setIsLoading(true);
     // Handle form submission, including the uploaded image.
-    // console.log(image); // This will log the image file.
+    console.log(image); // This will log the image file.
   };
 
   return (
