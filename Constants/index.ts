@@ -70,29 +70,11 @@ export const cardsData=[
       ]
     }
   ]
-  export const formData = [
-    {
-      label:'name',
-      placeholder:'Enter your Name',
-    },
-    {
-      label:'phone',
-      placeholder:'Enter your Number',
-    },
-    {
-      label:'email',
-      placeholder:'Enter your Name',
-    },
-    {
-      label:'category',
-      value:'select Product',
-      options:[
-        "Fan",
-        "AC",
-        "washing machine",
-        "Refregeretor"
-
-      ]}
+  export const category = [
+  
+   {id:1,name:"ac"},
+   {id:1,name:"washing machine"},
+   {id:1,name:"induction motor"},
     ]
     export const serviceSection=[
       {
