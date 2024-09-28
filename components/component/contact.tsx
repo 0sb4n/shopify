@@ -96,6 +96,7 @@ export default function Contact() {
       .then((result) => {
         alert("Email sent successfully!");
         setIsLoading(false);
+        console.log(result)
       })
       .catch((error) => {
         console.log(error.text);
