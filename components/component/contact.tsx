@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useToast, } from "@/hooks/use-toast";
 import {
   Select,
   SelectTrigger,
@@ -13,11 +14,12 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { category } from "@/Constants";
 import Loader from "./Loader";
-import emailjs from "emailjs-com"; // Import EmailJS
+
 
 
 
 export default function Contact() {
+  const {toast} = useToast();
   const [formValues, setFormValues] = useState({
     name: "",
     phone: "",
@@ -34,6 +36,7 @@ export default function Contact() {
   e.preventDefault();
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+   
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -72,36 +75,38 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
+setIsLoading(true);
 
-    // Prepare template parameters for EmailJS
-    const templateParams = {
-      name: formValues.name,
-      email: formValues.email,
-      phone: formValues.phone,
-      category: formValues.category,
-      imageBase64: formValues.imageBase64, // Send image in Base64 format
-    };
 
-    // Sending email using EmailJS
-    emailjs
-      .send(
-        "service_so8n6s4", // Replace with your service ID
-        "template_b6bhyxp", // Replace with your template ID
-        templateParams,
-         "5JUB8mcW_h-C9GPrO"// Replace with your user ID
-      )
-      .then((result) => {
-        alert("Email sent successfully!");
-        setIsLoading(false);
-        console.log(result)
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formValues),
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      toast({
+
+        title: 'Email Sent',
+        description: 'The email has been sent successfully!',
+     
+        duration: 5000,
       })
-      .catch((error) => {
-        console.log(error.text);
-        setIsLoading(false);
-      });
+      setIsLoading(false)
+    } else {
+      alert(`Error: ${result.error}`);
+      toast({
+          title: 'Error',
+        description:'There was an error sending the email. Please try again.',
+        duration:3000
+      })
+        setIsLoading(false)
+    }
   };
 
   return (
@@ -140,7 +145,7 @@ export default function Contact() {
                 value={formValues.phone}
                 onChange={handleInputChange}
                 className="text-sm font-bold shadow-inner border-none"
-                placeholder='Enter Your Name'
+                placeholder='Enter Your Number'
               />
             </div>
          
