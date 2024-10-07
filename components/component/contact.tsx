@@ -124,7 +124,7 @@ export default function Contact() {
         if (serverResponse.ok) {
           toast({
             title: 'Success',
-            description: 'Your form has been submitted successfully!',
+            description: `Your form has been submitted successfully! ${result.messege}`,
             duration: 5000,
           });
         } else {
