@@ -25,7 +25,7 @@ export default function Contact() {
     phone: "",
     email: "",
     category: "",
-    imageBase64:'',
+    image: null as File | null,
   });
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -41,16 +41,22 @@ export default function Contact() {
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setDragging(false);
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith("image/")) {
-      convertToBase64(file);
+    const droppedFiles = e.dataTransfer.files;
+    if (droppedFiles && droppedFiles[0]) {
+      setFormValues({...formValues, image:droppedFiles[0]}) // Set the dropped file
+      const reader = new FileReader();
+      reader.onload = () => setImagePreview(reader.result as string); // Preview the image
+      reader.readAsDataURL(droppedFiles[0]);
     }
-  };
+ 
+   }
+
+ 
+  
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setDragging(true);
+   
   };
 
   const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
@@ -59,55 +65,87 @@ export default function Contact() {
   };
 
   // Convert image to Base64
-  const convertToBase64 = (file: File) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result as string); // Show preview
-      setFormValues({ ...formValues, imageBase64: reader.result as string }); // Set Base64 image in form data
-    };
-    reader.readAsDataURL(file);
-  };
+
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file && file.type.startsWith("image/")) {
-      convertToBase64(file);
+    if (file) {
+      setFormValues({ ...formValues, image: file });
+      setImagePreview(URL.createObjectURL(file)); // Preview the image
+      console.log(URL.createObjectURL(file))
     }
   };
+ 
+
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-setIsLoading(true);
-
-
-    const response = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formValues),
-    });
-
-    const result = await response.json();
-    if (response.ok) {
-      toast({
-
-        title: 'Email Sent',
-        description: 'The email has been sent successfully!',
+    setIsLoading(true);
+  
+    // Create a FormData object for sending the file
+    const formData = new FormData();
+    formData.append('file', formValues.image as File); // Attach the image file
+    formData.append('upload_preset', 'shopify'); // Your Cloudinary upload preset
      
-        duration: 5000,
-      })
-      setIsLoading(false)
-    } else {
-      alert(`Error: ${result.error}`);
+  
+   
+  
+    try {
+      // First, upload the image to Cloudinary
+    const cloudinaryResponse = await fetch('https://api.cloudinary.com/v1_1/dh2epbfpf/upload', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const cloudinaryData = await cloudinaryResponse.json();
+  
+      if (cloudinaryResponse.ok) {
+        console.log("Cloudinary Response Data:", cloudinaryData);
+  
+        // After Cloudinary upload, send the form data (including image URL) to your server
+        const formDataToSend = {
+          name: formValues.name,
+          phone: formValues.phone,
+          email: formValues.email,
+          category: formValues.category,
+          imageUrl: cloudinaryData.secure_url, // Use Cloudinary image URL
+        };
+  
+        const serverResponse = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formDataToSend),
+        });
+  
+        const result = await serverResponse.json();
+        if (serverResponse.ok) {
+          toast({
+            title: 'Success',
+            description: 'Your form has been submitted successfully!',
+            duration: 5000,
+          });
+        } else {
+          throw new Error('Error submitting form to the server.');
+        }
+      } else {
+        console.log("Cloudinary Error:", cloudinaryData);
+        throw new Error('Cloudinary upload failed.');
+      }
+    } catch (error) {
+      console.log("Error:", error);
       toast({
-          title: 'Error',
-        description:'There was an error sending the email. Please try again.',
-        duration:3000
-      })
-        setIsLoading(false)
+        title: 'Error',
+        description: 'There was an error uploading the image or submitting the form. Please try again.',
+        duration: 3000,
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
+  
 
   return (
     <div className="relative mx-auto max-w-md rounded-lg  p-6l transition-all duration-300 hover:scale-105 shadow-2xl p-4">
