@@ -126,6 +126,8 @@ export default function Contact() {
             title: 'Success',
             description: `Your form has been submitted successfully! ${result.messege}`,
             duration: 5000,
+           
+
           });
         } else {
           throw new Error('Error submitting form to the server.');
