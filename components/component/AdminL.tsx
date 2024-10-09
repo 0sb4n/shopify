@@ -26,7 +26,7 @@ const AdminL = () => {
                     name='email' // Provide a fallback value in case data.name is undefined
                    
                     className="text-sm font-bold shadow-lg border-none"
-                    placeholder='Enter Your Name'
+                    placeholder='Enter Email'
                   />
                 </div>
                 
