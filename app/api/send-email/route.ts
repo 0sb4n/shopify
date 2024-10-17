@@ -1,10 +1,16 @@
 "use server"
+
+
+
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 
 
-export async function POST(request: Request) {
+export async function POST(request: Request){
+
+
     const { email, phone, name,category, imageUrl } = await request.json();
 
     const transporter = nodemailer.createTransport({
@@ -14,7 +20,6 @@ export async function POST(request: Request) {
         pass: process.env.GMAIL_PASS,
       },
     });
-
     const mailOptions = {
       from: email,
       to: process.env.GMAIL_USER,

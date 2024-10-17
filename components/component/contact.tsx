@@ -181,8 +181,10 @@ export default function Contact() {
               </Label>
               <Input
                 id="number"
+                type="number"
                 name='phone' // Provide a fallback value in case data.name is undefined
                 value={formValues.phone}
+                maxLength={10}
                 onChange={handleInputChange}
                 className="text-sm font-bold shadow-inner border-none"
                 placeholder='Enter Your Number'
@@ -197,6 +199,7 @@ export default function Contact() {
             </Label>
             <Input
               id='email'
+              type="email"
               name="email"
               value={formValues.email}
               onChange={handleInputChange}
@@ -220,10 +223,10 @@ export default function Contact() {
                 <SelectValue placeholder='select a product' />
               </SelectTrigger>
               <SelectContent>{
-                category.map((category)=>{
+                category.map((category,i)=>{
                 return(
 
-                  <SelectItem key={category.id} value={category.name.toLowerCase() } >
+                  <SelectItem key={i} value={category.name.toLowerCase() } >
                     {category.name}
                   </SelectItem>
                 )
@@ -236,7 +239,7 @@ export default function Contact() {
           </div>
        
         <div className="space-y-2">
-          <Label htmlFor="image">Upload Image</Label>
+          <Label htmlFor="image" className="text-sm font-bold">Upload Image</Label>
           <div
             className={`flex flex-col items-center justify-center rounded-md border-2 border-dashed ${
               dragging

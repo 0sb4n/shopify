@@ -1,3 +1,8 @@
+import nodemailer from "nodemailer"
+
+
+
+
 export const navLink =[
     {
         label:"Home",
@@ -72,9 +77,16 @@ export const cardsData=[
   ]
   export const category = [
   
-   {id:1,name:"ac"},
-   {id:1,name:"washing machine"},
-   {id:1,name:"induction motor"},
+   {"name":"ac"},
+   {"name":"washing machine"},
+   {"name":"induction motor"},
+   { "name": "Refrigerator" },
+   { "name": "Microwave Oven" },
+   { "name": "Washing Machine" },
+   { "name": "Dryer" },
+   { "name": "Air Conditioner" },
+   { "name": "Ceiling Fan" },
+   { "name": "Vacuum Cleaner" }
     ]
     export const serviceSection=[
       {
