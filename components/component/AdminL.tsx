@@ -28,9 +28,11 @@ const formData = {
   password:formValues.password
 }
 const res = await axios.post('/api/admin/login',{
-  formData
-})
+  formData})
+  const {adminId}= res.data
+router.push(`/admin-67-h456/verify-otp/${adminId}`)
 }
+
 
  
   
