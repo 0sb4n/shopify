@@ -2,10 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base{
+  :root{
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+}
 /* Custom Slate Theme overrides (optional) */
 body {
-  @apply bg-slate-800 text-slate-100;
+  @apply bg-background text-foreground;
 }
 
 * {

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,9 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { category } from "@/Constants";
 import Loader from "./Loader";
+
+import { connectToDb } from "@/lib/utils/database/db";
+import { createAdmin } from "@/scripts/createAdmin";
 
 
 
@@ -81,8 +84,10 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+   
     setIsLoading(true);
-  
+   
+
     // Create a FormData object for sending the file
     const formData = new FormData();
     formData.append('file', formValues.image as File); // Attach the image file

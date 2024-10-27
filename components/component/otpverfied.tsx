@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Loader from "./Loader"
-import { useParams, useRouter } from "next/navigation"
+import {  useParams, useRouter } from "next/navigation"
 
 
 export function Otpverfied() {
@@ -13,18 +13,23 @@ export function Otpverfied() {
   const [isLoading,setIsLoading]=useState(false)
   const [otp, setOtp] = useState('')
   const router = useRouter();
-  const params= useParams()
+ 
+  const params = useParams();
+const{adminId}= params
+
+
  
   const handleSubmit=async (e:React.FormEvent)=>{
     e.preventDefault();
     setIsLoading(true);
     const res =await fetch(`/api/admin/verify`,{
       method:'POST',
-     body:JSON.stringify({otp,adminId:params.adminId})
+     body:JSON.stringify({otp,adminId})
 
     })
+ 
     if(res.ok){
-      router.push(`/admin-67-h456/dashboard/${params.adminId}`)
+      router.push(`/admin-67-h456/dashboard/${adminId}`)
     }else{
       console.error('invalid otp')
     }
@@ -51,7 +56,7 @@ export function Otpverfied() {
                 maxLength={4}
                 value={otp}
                 pattern="[0-9]*"
-                className="w-44 rounded-md shadow-lg border border-input bg-background px-3 py-2 text-center text-lg font-medium text-foreground  transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-44 rounded-lg shadow-xl border  bg-background px-3 py-2 text-center text-lg font-medium text-foreground  transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 placeholder="0000"
                 onChange={(e)=>{e.preventDefault()
                   setOtp(e.target.value)

@@ -4,8 +4,10 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from '../ui/button';
 import Loader from './Loader';
-import axios from 'axios'
+import {signIn} from "next-auth/react"
 import { useRouter } from 'next/navigation';
+
+
 
 
 const AdminL = () => {
@@ -23,18 +25,25 @@ const onValueChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 const handleSubmit =async (e: React.FormEvent)=>{
   e.preventDefault();
 setIsLoading(true);
-const formData = {
+const res = await signIn('credentials',{
+  redirect:false,
   email:formValues.email,
   password:formValues.password
+})
+if (res?.ok){
+  router.push('/admin-67-h456/dashboard')
+}else{
+ alert('login failed')
+ console.log(res?.error)
 }
-const res = await axios.post('/api/admin/login',{
-  formData})
-  const {adminId}= res.data
-router.push(`/admin-67-h456/verify-otp/${adminId}`)
+setIsLoading(false);
+setFormValues({ ...formValues, email: '',password:'' });
+
+
 }
 
 
- 
+
   
 
 

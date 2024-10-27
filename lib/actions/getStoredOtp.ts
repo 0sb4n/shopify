@@ -1,10 +1,10 @@
 import { connectToDb } from "../utils/database/db"
 import Admin from "../utils/models/admin.model";
 
-export const getStoredOtp= async (id:string)=>{
+export const getStoredOtp= async (AdminId:string)=>{
 await connectToDb();
 try {
-    const admin = await Admin.findById(id);
+    const admin = await Admin.findById(AdminId);
     if (!admin || !admin.otp || !admin.otpExpired){
         return{otp :null,expired:true}
     }
