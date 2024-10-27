@@ -15,8 +15,7 @@ import Image from "next/image";
 import { category } from "@/Constants";
 import Loader from "./Loader";
 
-import { connectToDb } from "@/lib/utils/database/db";
-import { createAdmin } from "@/scripts/createAdmin";
+
 
 
 

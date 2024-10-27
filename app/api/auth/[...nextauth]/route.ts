@@ -4,7 +4,10 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 import Admin from '@/lib/utils/models/admin.model';
 import { connectToDb } from '@/lib/utils/database/db';
-
+interface Credentials{
+  email: string;
+  password: string;
+}
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
@@ -14,7 +17,7 @@ export const authOptions: AuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials:any) {
+      async authorize(credentials:Credentials | undefined) {
         await connectToDb()
         if (!credentials) return null;
 
