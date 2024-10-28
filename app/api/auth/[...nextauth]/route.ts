@@ -8,7 +8,7 @@ interface Credentials{
   email: string;
   password: string;
 }
-export const authOptions: AuthOptions = {
+ const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
     
