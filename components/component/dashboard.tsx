@@ -111,7 +111,7 @@
                 </Avatar>
                 <div className="hidden md:block">
                   <div className="text-sm font-medium">Admin</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">{session.user?._id}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{session.user?.id}</div>
                 </div>
                 <ChevronDown className="h-4 w-4 text-gray-500" />
               </div>

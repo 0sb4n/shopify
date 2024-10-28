@@ -41,14 +41,12 @@ interface Credentials{
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.user =user
+        token.id =user._id as string
       }
       return token;
     },
     async session({ session, token, }) {
-      if (token) {
-       session.user = token.user as typeof session.user
-      }
+       session.user.id = token.id as string
       return session;
     },
   },
