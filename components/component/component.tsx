@@ -8,10 +8,23 @@ import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 import { cardsData } from "@/Constants"
 import Mobile from "./Mobile"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 
 
 
 export function Component() {
+  
   const pathName = usePathname()
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -31,7 +44,27 @@ return(
 ) 
   
 })}
-        
+      
+<AlertDialog>
+  <AlertDialogTrigger> <Button variant="secondary" className="shadow-lg" >
+        Chat Support
+        <Image src="/assets/icons/voite.svg" alt="ch" height={20} width={20}/>
+        </Button> </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction><Link href='/sign-in'>sign-in</Link></AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+
         </nav>
       <Mobile/>
 

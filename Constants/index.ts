@@ -5,10 +5,11 @@ import nodemailer from "nodemailer"
 
 export const navLink =[
     {
-        label:"Home",
-        key:"Home",
-        route:"/"
-    },{
+      label:"Home",
+      key:"Home",
+       route:"/"
+    },
+  {
         label:"Services",
         key:"Services",
         route:"/services"
