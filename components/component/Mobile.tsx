@@ -24,9 +24,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 const Mobile = () => {
-  const chatHandler=()=>{
-      
-  }
+ 
     const pathName = usePathname();
   return (
     <>
@@ -49,7 +47,7 @@ const Mobile = () => {
     <AlertDialogFooter>
    
       <Button variant="outline">
-        <Link href='/Chat'>Let's Chat</Link>
+        <Link href='/Chat'>Let&apos;s Chat</Link>
       </Button>
      <Button><Link href='/sign-in'>sign-up</Link></Button>
     </AlertDialogFooter>

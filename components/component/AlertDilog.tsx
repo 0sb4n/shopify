@@ -36,7 +36,7 @@ const AlertDilog = () => {
     </AlertDialogHeader>
     <AlertDialogFooter>
    
-      <Button variant="outline" onClick={chatHandler}><Link href='/Chat'>Let's chat</Link></Button>
+      <Button variant="outline" onClick={chatHandler}><Link href='/Chat'>Let&apos;s chat</Link></Button>
      <Button><Link href='/sign-in'>sign-up</Link></Button>
     </AlertDialogFooter>
   </AlertDialogContent>
