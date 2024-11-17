@@ -5,14 +5,22 @@ declare module 'next-auth' {
   interface Session {
 user:{
   id?:string
+  role:string
 }
+  }
+  interface Token{
+    user:{
+      role?:string
+    }
   }
 
   interface JWT {
-    _id: string; // Add the 'id' property to the JWT object
-    otpVerified: boolean;
+    id: string; // Add the 'id' property to the JWT object
+    
+   
   }
   interface User {
-    _id:string
+    id:string
+    role:string
   }
 }

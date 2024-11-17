@@ -8,28 +8,18 @@ import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 import { cardsData } from "@/Constants"
 import Mobile from "./Mobile"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
 
-
+import AlertDilog from "./AlertDilog"
 
 
 export function Component() {
-  
+
+ 
   const pathName = usePathname()
   return (
     <div className="flex flex-col min-h-[100dvh]">
       
-      <header className="flex items-center justify-between h-16 px-4 lg:px-6 border-b">
+      <header className="flex items-center justify-between h-16 px-4 lg:px-16 border-b">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-8 w-8" />
           <span className="text-lg font-semibold">TrustedRepairs</span>
@@ -45,25 +35,7 @@ return(
   
 })}
       
-<AlertDialog>
-  <AlertDialogTrigger> <Button variant="secondary" className="shadow-lg" >
-        Chat Support
-        <Image src="/assets/icons/voite.svg" alt="ch" height={20} width={20}/>
-        </Button> </AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-      <AlertDialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction><Link href='/sign-in'>sign-in</Link></AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>
+<AlertDilog/>
 
         </nav>
       <Mobile/>

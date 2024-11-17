@@ -7,6 +7,8 @@ import { navLink } from "@/Constants"
 import { about } from "@/Constants"
 import Image from "next/image"
 import Mobile from "./Mobile"
+import { AlertDialog } from "../ui/alert-dialog"
+import AlertDilog from "./AlertDilog"
 export function About() {
   const pathName = usePathname()
   return (
@@ -28,7 +30,7 @@ return(
 ) 
   
 })}
-        
+       <AlertDilog/>
         </nav>
         <Mobile/>
       </header>

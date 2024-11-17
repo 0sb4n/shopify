@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { navLink, serviceSection } from "@/Constants"
 import Image from "next/image"
 import Mobile from "./Mobile"
+import AlertDilog from "./AlertDilog"
 export function Services() {
   const pathName = usePathname()
   return (
@@ -25,7 +26,7 @@ return(
 ) 
   
 })}
-        
+      <AlertDilog/>  
         </nav>
      <Mobile/>
       </header>

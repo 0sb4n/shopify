@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+
 import { usePathname } from 'next/navigation'
 import {
     Sheet,
@@ -8,15 +8,58 @@ import {
     SheetTrigger,
   } from "@/components/ui/sheet"
 import { navLink } from '@/Constants'
+import {
+  AlertDialog,
+
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 const Mobile = () => {
+  const chatHandler=()=>{
+      
+  }
     const pathName = usePathname();
   return (
     <>
     <Sheet >
-  <SheetTrigger className='md:hidden'>
+      <div  className='md:hidden flex items-center justify-center gap-3'>
+      <AlertDialog>
+  <AlertDialogTrigger>
+        <Image src="/assets/icons/voite.svg" alt="ch" height={26} width={26}/>
+         </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <div className="flex justify-between items-center ">
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogCancel>x</AlertDialogCancel>
+      </div>
+      <AlertDialogDescription>
+      To use chat support, please sign in first. If you have an account, you can start chatting; otherwise, please sign up
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+   
+      <Button variant="outline">
+        <Link href='/Chat'>Let's Chat</Link>
+      </Button>
+     <Button><Link href='/sign-in'>sign-up</Link></Button>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+  <SheetTrigger>
     <MountainIcon className='h-8 w-8 rounded-md p-1 bg-white shadow-xl'/>
   </SheetTrigger>
+      </div>
+   
   <SheetContent className=' shadow-inner bg-white backdrop-blur-xl w-56 outline-none border-l-0 rounded-md'>
     <div>
 {navLink.map((link)=>{
@@ -26,10 +69,12 @@ const Mobile = () => {
     <li >
         <Link href={link.route}  className={`w-full block text-black text-lg p-2 ${isActive ? 'border-[1px] rounded-lg': 'border-none'}`}  >
         {link.label}</Link>
+        
     </li>
 </ul>
     )
 })}
+
        
     </div>
    

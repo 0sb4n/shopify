@@ -1,59 +1,75 @@
-// app/api/auth/[...nextauth]/route.ts (Next.js 14 with NextAuth)
+
 import NextAuth, { AuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcrypt';
-import Admin from '@/lib/utils/models/admin.model';
-import { connectToDb } from '@/lib/utils/database/db';
-interface Credentials{
-  email: string;
-  password: string;
-}
- const authOptions: AuthOptions = {
+import CredentialsProvider from "next-auth/providers/credentials";
+
+import User from "@/lib/utils/models/user.model";
+import Admin from "@/lib/utils/models/admin.model";
+import bcrypt from "bcrypt";
+import { connectToDb } from "@/lib/utils/database/db";
+
+const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
-    
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
-        email: { label: 'Email', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials:Credentials | undefined) {
+      async authorize(
+        credentials: Record<"email" | "password", string> | undefined
+      ) {
+        if (!credentials) {
+          return null;
+        }
+
         await connectToDb()
-        if (!credentials) return null;
 
-        const user = await Admin.findOne({ email: credentials.email });
-        if (!user) return null;
+        // Attempt to find an admin with the provided email
+        let user = await Admin.findOne({ email: credentials.email });
+        
+        if (user && bcrypt.compareSync(credentials.password, user.password)) {
+          // Return admin user with role
+          return { id: user._id, name: user.name, email: user.email, role: "admin" };
+        } 
+        
+        // If not found in Admin, attempt to find in User
+        user = await User.findOne({ email: credentials.email });
+        
+        if (user && bcrypt.compareSync(credentials.password, user.password)) {
+          // Return regular user with role
+          return { id: user._id, name: user.name, email: user.email, role: "user" };
+        }
 
-        const isValidPassword = await bcrypt.compare(credentials.password, user.password);
-        if (!isValidPassword) return null;
-
-        return user
+        // If no matching user is found
+        return null;
       },
     }),
   ],
-  pages: {
-    signIn: '/admin-67-h456', // Custom login page
-  },
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
- 
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id =user._id as string
+        token.id = user.id;
+        token.role = user.role;
       }
       return token;
-      
     },
-    async session({ session, token, }) {
-       session.user.id = token.id as string
+    async session({ session, token }) {
+      session.user.id = token.id as string
+      session.user.role = token.role as string
       return session;
     },
   },
-  secret:process.env.NEXTAUTH_SECRET,
-  // JWT secret for signing tokens
-};
+  pages: {
+    signIn: "admin-67-h456", 
+    // Custom login page
+   
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+}
+
 
 const handler = NextAuth(authOptions);
 

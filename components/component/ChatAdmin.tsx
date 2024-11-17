@@ -38,6 +38,8 @@ export default function ChatSend() {
   }
 
   return (
+     <div className='w-[100%] h-[100vh] flex items-center justify-center'>
+
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">Customer Support</CardTitle>
@@ -99,5 +101,6 @@ export default function ChatSend() {
         </form>
       </CardFooter>
     </Card>
+     </div>
   )
 }

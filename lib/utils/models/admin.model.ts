@@ -9,8 +9,7 @@ const adminSchema= new Schema({
         require:true,
         type:String
     },
-    otp:{type:String},
-    otpExpired:{type:Date}
+    role: { type: String, default: "admin" },
 })
 const Admin =models?.Admin || model('Admin', adminSchema)
 export default Admin;
