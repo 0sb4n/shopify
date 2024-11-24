@@ -10,6 +10,7 @@ import { cardsData } from "@/Constants"
 import Mobile from "./Mobile"
 
 import AlertDilog from "./AlertDilog"
+import LampDemo from "./Lamp"
 
 
 export function Component() {
@@ -19,7 +20,7 @@ export function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       
-      <header className="flex items-center justify-between h-16 px-4 lg:px-16 border-b">
+      <header className="flex fixed top-2 z-10 w-full backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-lg ">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-8 w-8" />
           <span className="text-lg font-semibold">TrustedRepairs</span>
@@ -28,7 +29,7 @@ export function Component() {
 {navLink.map((link)=>{
 const isActive =link.route ===pathName
 return(
-          <Link href={link.route} key={link.key} className={`text-sm font-medium hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
+          <Link href={link.route} key={link.key} className={`text-md font-bold text-slate-400 hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
             {link.label}
           </Link>
 ) 
@@ -41,13 +42,14 @@ return(
       <Mobile/>
 
       </header>
-      <main className="flex-1">
-        <section className="w-full py-6 md:py-24 lg:py-0">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_550px] lg:gap-12 xl:grid-cols-[1fr_650px]">
-              <div className="flex flex-col justify-center space-y-4">
+      <LampDemo/>
+      <main className="flex-1 ">
+        <section className="w-full h-screen py-6 md:py-24 absolute lg:top-[18rem] top-[6rem] lg:py-0">
+          <div className="container h-screen px-4 md:px-6">
+            <div className="w-full flex items-center justify-between lg:gap-4 gap-6 lg:flex-row flex-col   px-6">
+              <div className="flex flex-col justify-center space-y-4 w-full lg:w-[50%]">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  <h1 className="text-3xl  text-transparent bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                   Power Up Your Home with Our Expert Services
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -71,16 +73,15 @@ return(
                   </Link>
                 </div>
               </div>
-              <div className="relative">
+              <div className="lg:w-[50%] lg:h-[400px] h-[240px] w-full overflow-hidden rounded-md">
                 <Image
                   src="/assets/images/motor.jpeg"
-                  width="650"
-                  height="650"
+                  width={450}
+                  height={400}
                   alt="3D Mockup"
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-contain sm:w-full"
+                  className="object-cover"
                 />
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-background to-transparent" />
-              </div>
+               </div>
             </div>
           </div>
         </section>
