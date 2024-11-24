@@ -2,8 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link from "next/link"
-import Image from "next/image"
+
 
 
 export const LampContainer = ({
