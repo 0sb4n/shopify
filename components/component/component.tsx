@@ -7,10 +7,11 @@ import { Card } from "@/components/ui/card"
 import { usePathname } from "next/navigation"
 import { navLink } from "@/Constants"
 import { cardsData } from "@/Constants"
-import Mobile from "./Mobile"
+import Mobile from "./Mobile"  
 
 import AlertDilog from "./AlertDilog"
-import LampDemo from "./Lamp"
+
+import ImagesSliderDemo  from "./Hero"
 
 
 export function Component() {
@@ -18,12 +19,12 @@ export function Component() {
  
   const pathName = usePathname()
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex  flex-col min-h-[100dvh]">
       
-      <header className="flex fixed top-2 z-10 w-full backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-lg ">
+      <header className="flex fixed lg:w-[80%]  top-3 lg:right-[10rem] w-full  z-10 w- backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-full ">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-8 w-8" />
-          <span className="text-lg font-semibold">TrustedRepairs</span>
+          <span className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">TrustedRepairs</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
 {navLink.map((link)=>{
@@ -42,49 +43,9 @@ return(
       <Mobile/>
 
       </header>
-      <LampDemo/>
+   
       <main className="flex-1 ">
-        <section className="w-full h-screen py-6 md:py-24 absolute lg:top-[18rem] top-[6rem] lg:py-0">
-          <div className="container h-screen px-4 md:px-6">
-            <div className="w-full flex items-center justify-between lg:gap-4 gap-6 lg:flex-row flex-col   px-6">
-              <div className="flex flex-col justify-center space-y-4 w-full lg:w-[50%]">
-                <div className="space-y-2">
-                  <h1 className="text-3xl  text-transparent bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Power Up Your Home with Our Expert Services
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Explore Our Full Range of Services to Keep Your Home Running Smoothly. From Repairs to Maintenance, We&apos;ve Got You Covered.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link
-                    href="/services"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
-                  >
-                    Explore Services
-                  </Link>
-                  <Link
-                    href="/Contact"
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-              <div className="lg:w-[50%] lg:h-[400px] h-[240px] w-full overflow-hidden rounded-md">
-                <Image
-                  src="/assets/images/motor.jpeg"
-                  width={450}
-                  height={400}
-                  alt="3D Mockup"
-                  className="object-cover"
-                />
-               </div>
-            </div>
-          </div>
-        </section>
+      <ImagesSliderDemo/>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
