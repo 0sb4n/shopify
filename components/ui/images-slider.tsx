@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import Loader from "../component/Loader";
 
 export const ImagesSlider = ({
   images,
@@ -70,18 +71,18 @@ export const ImagesSlider = ({
     window.addEventListener("keydown", handleKeyDown);
 
     // autoplay
-    let interval: any;
+    let interval: NodeJS.Timeout;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
       }, 5000);
+     
     }
-
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       clearInterval(interval);
     };
-  }, []);
+  }, [loadImages,autoplay,handleNext,handlePrevious]);
 
   const slideVariants = {
     initial: {
@@ -126,6 +127,7 @@ export const ImagesSlider = ({
         perspective: "1000px",
       }}
     >
+      {loading && <Loader/>}
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && (
         <div
