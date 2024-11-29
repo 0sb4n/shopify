@@ -14,9 +14,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 const AlertDilog = () => {
-  const chatHandler=()=>{
-      
-  }
+  
   return (
     <div>
       <AlertDialog>
@@ -41,7 +39,10 @@ const AlertDilog = () => {
       </AlertDialogDescription>
     </AlertDialogHeader>
     <AlertDialogFooter>
-   
+      
+   <Link href='/Chat'><Button variant='outline'>lets chat</Button></Link>
+   <Link href='/sign-in'><Button>sign-up</Button>
+   </Link>
       
     </AlertDialogFooter>
   </AlertDialogContent>
