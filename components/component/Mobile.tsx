@@ -54,7 +54,7 @@ const Mobile = () => {
   </AlertDialogContent>
 </AlertDialog>
   <SheetTrigger>
-    <MountainIcon className='h-8 w-8 rounded-md p-1 bg-transparent shadow-xl brightness-100'/>
+    <MountainIcon className='h-8 w-8 rounded-md p-1 bg-slate-200 shadow-xl'/>
   </SheetTrigger>
       </div>
    

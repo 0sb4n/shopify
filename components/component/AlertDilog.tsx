@@ -20,13 +20,12 @@ const AlertDilog = () => {
   return (
     <div>
       <AlertDialog>
-  <AlertDialogTrigger> 
-    
+  <AlertDialogTrigger className='inline-flex h-10 w-36 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-0  font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'> 
   
-        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-Chat-support
+  
+<span>Chat-support</span>
           <Image src="/assets/icons/voite.svg" alt="ch" height={20} width={20}/>
-        </button>
+        
   
        
       
@@ -43,8 +42,7 @@ Chat-support
     </AlertDialogHeader>
     <AlertDialogFooter>
    
-      <Button variant="outline" onClick={chatHandler}><Link href='/Chat'>Let&apos;s chat</Link></Button>
-     <Button><Link href='/sign-in'>sign-up</Link></Button>
+      
     </AlertDialogFooter>
   </AlertDialogContent>
 </AlertDialog>

@@ -12,6 +12,7 @@ import Mobile from "./Mobile"
 import AlertDilog from "./AlertDilog"
 
 import ImagesSliderDemo  from "./Hero"
+import { AnimatedTestimonialsDemo } from "./Testimonials"
 
 
 export function Component() {
@@ -21,7 +22,7 @@ export function Component() {
   return (
     <div className="flex  flex-col min-h-[100dvh]">
       
-      <header className="flex fixed lg:w-[80%]  top-3 lg:right-[10rem] w-full  z-10 w- backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-full ">
+      <header className=" z-40 flex fixed lg:w-[80%]  top-3 lg:right-[10rem] w-full   w- backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-full ">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-8 w-8" />
           <span className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">TrustedRepairs</span>
@@ -46,6 +47,7 @@ return(
    
       <main className="flex-1 ">
       <ImagesSliderDemo/>
+      <AnimatedTestimonialsDemo/>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">

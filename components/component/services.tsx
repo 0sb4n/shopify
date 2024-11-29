@@ -1,4 +1,17 @@
 "use client"
+import * as React from "react"
+import Autoplay from "embla-carousel-autoplay"
+
+
+
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 import Link from "next/link"
 
@@ -7,6 +20,7 @@ import { navLink, serviceSection } from "@/Constants"
 import Image from "next/image"
 import Mobile from "./Mobile"
 import AlertDilog from "./AlertDilog"
+
 export function Services() {
   const pathName = usePathname()
   return (
@@ -58,28 +72,46 @@ return(
                     style={{ aspectRatio: "64/64", objectFit: "cover" }}
                   />
                   <h3 className="text-xl font-bold">{data.category}</h3>
-                 <div className="flex justify-center gap-2 items-center mt-2">
-                  {
-                    data.services.map((service,index)=>{
-                    return(
-                  
-                  <div className="p-2 shadow-2xl bg-white rounded-md" key={index}>
-                    <Image src={service.image} alt="icon" height={26} width={26}/>
-                    <h4 className="text-lg font-bold">{service.name}</h4>
-                    <p className="text-sm font-medium">{service.description}</p>
-                  </div>
-                    )
-                  })
-                    }
-                 
+              <div className="w-full flex justify-center items-center gap-2">
+              <Carousel className="max-w-sm"
+               plugins={[
+                Autoplay({
+                  delay: 2000,
+                }),
+              ]}>
+                <CarouselContent className="-ml-1">
+            {data.services.map((serc,index)=>(
+                 <CarouselItem key={index} className="pl-1 basis-1/3 md:basis-1/2 lg:basis-1/3">
+                 <div className="p-1">
+                   <Card>
+                     <CardContent className="flex aspect-video  gap-1 shadow-xl p-2 flex-col">
+                      <Image
+                      src={serc.image}
+                      alt="home"
+                      height={32}
+                      width={32}/>
+                     <h2 className="text-lg font-semibold">{serc.name}</h2>
+                     <p className="text-sm font-sm">{serc.description}</p>
+                     </CardContent>
+                   </Card>
                  </div>
+               </CarouselItem>
+                  
+            ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+      <CarouselNext />
+            </Carousel>
+            
+            </div>
+              
                 </div>
             )
           })
           }
 
          </div>
-                
+              {/* <AppleCardsCarouselDemo/>   */}
               
             
           </div>

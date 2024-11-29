@@ -99,7 +99,15 @@ export const cardsData=[
             "description": "Expert repair services for all types of home fans."
           },
           { "image":"assets/icons/air-conditioning.svg",
-            "name": "Air Conditioner Repair",
+            "name": "Ac Repair",
+            "description": "Servicing and repair of residential air conditioning units."
+          },
+          { "image":"assets/icons/fan.svg",
+            "name": "Fan Repair",
+            "description": "Expert repair services for all types of home fans."
+          },
+          { "image":"assets/icons/air-conditioning.svg",
+            "name": "Ac Repair",
             "description": "Servicing and repair of residential air conditioning units."
           },
           { "image":"assets/icons/washing-machine.svg",
@@ -124,6 +132,14 @@ export const cardsData=[
           { "image":"assets/icons/electric.svg",
             "name": "Generator Repair",
             "description": "Maintenance and repair of commercial power generators."
+          },
+          { "image":"assets/icons/air-conditioning.svg",
+            "name": "Refrigeration Systems Repair",
+            "description": "Repair services for commercial refrigeration units."
+          },
+          { "image":"assets/icons/electric.svg",
+            "name": "Generator Repair",
+            "description": "Maintenance and repair of commercial power generators."
           }
         ]
       }
@@ -132,6 +148,14 @@ export const cardsData=[
   "image":"/assets/icons/industry.svg",
   "category": "Industrial Appliances Repair",
   "services": [
+    { "image":"assets/icons/motor.svg",
+      "name": "Three-Phase Motor Repair",
+      "description": "Expert repair and servicing of industrial three-phase motors."
+    },
+    { "image":"assets/icons/electric.svg",
+      "name": "Generator Repair",
+      "description": "Repair and maintenance services for industrial power generators."
+    },
     { "image":"assets/icons/motor.svg",
       "name": "Three-Phase Motor Repair",
       "description": "Expert repair and servicing of industrial three-phase motors."
