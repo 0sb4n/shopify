@@ -13,6 +13,7 @@ import AlertDilog from "./AlertDilog"
 
 import ImagesSliderDemo  from "./Hero"
 import { AnimatedTestimonialsDemo } from "./Testimonials"
+import { InfiniteMovingCardsDemo } from "./MoveCard"
 
 
 export function Component() {
@@ -48,43 +49,8 @@ return(
       <main className="flex-1 ">
       <ImagesSliderDemo/>
       <AnimatedTestimonialsDemo/>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {
-                cardsData.map((plan,index)=>{
-                  return(
-
-              <Card key={index} className="p-6 space-y-4  shadow-xl">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">{plan.title}</h3>
-                  <div className="text-3xl font-bold">{plan.price}</div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">{plan.description}</p>
-                  
-                  <ul className="space-y-1 text-muted-foreground" >
-                  {plan.features.map((feature,i)=>{
-                    return(
-
-                    <li key={i}>
-                      <CheckIcon className="mr-2 inline-block h-4 w-4 text-primary" />
-                      {feature}
-                    </li>
-                   
-                  
-                    )
-                  })}</ul>
-                </div>
-                <Button>{plan.cta}</Button>
-              </Card>
-                  )
-                })
-              }
-           
-            </div>
-          </div>
-        </section>
+      <InfiniteMovingCardsDemo/>ss
+       
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">

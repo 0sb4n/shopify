@@ -81,7 +81,7 @@ return(
               ]}>
                 <CarouselContent className="-ml-1">
             {data.services.map((serc,index)=>(
-                 <CarouselItem key={index} className="pl-1 basis-1/3 md:basis-1/2 lg:basis-1/3">
+                 <CarouselItem key={index} className="pl-1 basis-1/2 md:basis-1/2 lg:basis-1/3">
                  <div className="p-1">
                    <Card>
                      <CardContent className="flex aspect-video  gap-1 shadow-xl p-2 flex-col">
