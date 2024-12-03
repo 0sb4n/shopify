@@ -49,7 +49,7 @@ return(
       <main className="flex-1 ">
       <ImagesSliderDemo/>
       <AnimatedTestimonialsDemo/>
-      <InfiniteMovingCardsDemo/>ss
+      <InfiniteMovingCardsDemo/>
        
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
