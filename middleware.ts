@@ -33,7 +33,6 @@ export async function middleware(req:NextRequest) {
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
-
   // Allow the request if role matches the required access
   return NextResponse.next();
 }
