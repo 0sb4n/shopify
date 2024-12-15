@@ -9,7 +9,7 @@ export async function middleware(req:NextRequest) {
   
   // Define the paths you want to protect and the required roles
   const adminPaths = ['/admin-67-h456/dashboard']; // Only admins can access this route
-  const userPaths = ['/Chat']; // Only users can access this route
+  // const userPaths = ['/chat']; // Only users can access this route
 
   const { pathname } = req.nextUrl;
 
@@ -26,13 +26,13 @@ export async function middleware(req:NextRequest) {
     }
   }
 
-  // Protect user routes
-  if (userPaths.some((path) => pathname.startsWith(path))) {
-    if (token.role !== 'user') {
-      // Redirect users without 'user' role trying to access user paths
-      return NextResponse.redirect(new URL('/', req.url));
-    }
-  }
+  // // Protect user routes
+  // if (userPaths.some((path) => pathname.startsWith(path))) {
+  //   if (token.role !== 'user') {
+  //     // Redirect users without 'user' role trying to access user paths
+  //     return NextResponse.redirect(new URL('/chat', req.url));
+  //   }
+  // }
   // Allow the request if role matches the required access
   return NextResponse.next();
 }

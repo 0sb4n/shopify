@@ -1,126 +1,114 @@
-"use client"
-import React, { useState } from 'react'
-import { Button ,} from '../ui/button'
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import Loader from './Loader';
-import { useRouter } from 'next/navigation';
+"use client";
+import React from "react";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import localFont from "next/font/local";
+const poppins = localFont({
+  src: "../../app/fonts/Voltstrom.otf",
+  variable: "--font-poppins",
+  weight: "100 900",
+});
+export  default function SignupFormDemo() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Form submitted");
+  };
+  return (
+    <div className="w-full h-screen flex items-center">
+      <div className="bg-black hidden md:w-[50%] md:flex h-full gap-2  flex-col justify-center items-center"><h1 className={`text-6xl text-center font-bold text-white ${poppins.className}`}> Welcome to  <br />trustedrepairs</h1>
+      <p className="text-neutral-400 text-center text-xl font-semibold ">power up your services  with Trustedrepairs.<br />  A complete solution of your electricls appliances</p></div>
+    <div className="max-w-md border-none rounded-md shadow-xl w-full mx-auto  md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+      <h2 className={`font-bold text-xl text-neutral-800 dark:text-neutral-200 `}>
+        Welcome to trustedrepairs
+      </h2>
+      <p className="text-neutral-500 text-sm font-medium max-w-sm mt-2 dark:text-neutral-300">
+        power up your appliances with trustedrepairs 
+      </p>
 
-
-
-
-const Sign = () => {
-    const router = useRouter()
-    const [formValues , setFormValues]=useState({email:"",name:"",password:""})
-    const [loading ,setIsLoading]=useState(false)
-   
-    const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
-        e.preventDefault();
-          const { name, value } = e.target;
-          setFormValues({ ...formValues, [name]: value });
-      }
-      const handleSubmit = async(e:React.FormEvent)=>{
-        e.preventDefault()
-        setIsLoading(true)
-        const res = await fetch('/api/user/create',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: formValues.email,
-                name: formValues.name,
-                password: formValues.password
-            }),
-
-        })
-if(res.ok){
-    router.push('/Chat')
-    setIsLoading(false)
-
-}else{
-    alert('error')
-    setIsLoading(false)
-}
-    
-      }
-    
-    return (
-        <div className="flex flex-col items-center justify-center h-screen">
-      {loading && <Loader/>}
-      <div className="relative pb-10 w-80  mx-auto max-w-md rounded-lg  p-6l transition-all duration-300 hover:scale-105 shadow-lg p-4">
-      
-        <h3 className="mb-4 text-2xl font-semibold text-center">
-         Create your Account
-        </h3>
-        <p className="text-sm font-medium text-slate-700 mb-4">
+      <form className="my-8" onSubmit={handleSubmit}>
+        <div className="flex flex-row md:flex-row items-center gap-2  space-y-2 md:space-y-0 md:space-x-2 mb-4">
+          <LabelInputContainer>
+            <Label htmlFor="name"> what&apos;s Your name</Label>
+            <Input id="name" placeholder="Type Your Name..." type="text" className=" shadow-lg border-none" />
+          </LabelInputContainer>
+         
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Email Address</Label>
+          <Input id="email" placeholder="Type Your Email..." type="email"  className=" shadow-lg border-none"/>
+        </LabelInputContainer>
+        </div>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Phone Number</Label>
+          <Input id="email" placeholder="+919855xxxxxx" type="number" className=" shadow-lg border-none"/>
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">varify OTP</Label>
+          <Input id="email" placeholder="" type="number" maxLength={4} className=" shadow-lg border-none"/>
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="password">Password</Label>
+          <Input id="password" placeholder="password" className=" shadow-lg border-none">
           
-        </p>
-        <form className="space-y-4" onSubmit={handleSubmit}  >
-          
-            
-              <div className="space-y-2" >
-                <Label htmlFor='name' className="text-sm font-bold">
-                 name
-                </Label>
-                <Input
-                  id="name"
-                  name='name' // Provide a fallback value in case data.name is undefined
-                  value={formValues.name}
-                  onChange={handleChange}
-                  type='text'
-                  className="text-sm font-bold shadow-lg border-none"
-                  placeholder='Enter you name'
-                />
-              </div>
-              <div className="space-y-2" >
-                <Label htmlFor='name' className="text-sm font-bold">
-                 Email
-                </Label>
-                <Input
-                  id="name"
-                  type='email'
-                  onChange={handleChange}
-                  name='email' // Provide a fallback value in case data.name is undefined
-                  value={formValues.email}
-                  
-                  className="text-sm font-bold shadow-lg border-none"
-                  placeholder='Enter Email'
-                />
-              </div>
-              
-           
-     
-         
-            <div className="space-y-2">
-              <Label htmlFor='password' className="text-sm font-bold">
-           Password
-              </Label>
-              <Input
-                id='password'
-              value={formValues.password}
-                name="password"
-                 onChange={handleChange}
-                className="text-sm font-bold shadow-lg border-none"
-                placeholder="Enter password"
-              />
-            </div>
-         
-         
-           
-           
-         
+          </Input>
         
-          <div className="flex h-4 justify-center">
-         <Button disabled={loading}>{
-            loading?'signing-up..':"sign-Up"
-            }</Button>
-          </div>
-        </form>
-      </div>
-      </div>
-    )
-    
+        </LabelInputContainer>
+       
+
+        <Button
+          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          type="submit"
+        >
+          Sign up &rarr;
+         
+        </Button>
+           <p className=" text-slate-800 text-center mt-5">or</p>
+
+        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-4 h-[1px] w-full" />
+        <div className="flex w-full gap-4 space-y-2 justify-center items-center">
+          <Button
+           variant='secondary'
+            className="w-[40%] h-10"
+          >
+          
+            <Image src='/assets/icons/google.svg' alt="icon" height={18} width={18}/>
+            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+              Google
+            </span>
+          
+          </Button> 
+          <Button
+          variant='secondary'
+           className="w-[40%] h-[2.6rem]"
+          >
+          <Image src='/assets/icons/facebook.svg' alt="icon" height={20} width={20}/>
+            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+             Facebook
+            </span>
+            
+         
+          </Button>
+        </div>
+      </form>
+    </div>
+    </div> 
+  );
 }
 
-export default Sign
+
+
+const LabelInputContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn("flex flex-col space-y-2 w-full", className)}>
+      {children}
+    </div>
+  );
+};
