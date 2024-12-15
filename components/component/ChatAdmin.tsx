@@ -69,7 +69,7 @@ export default function AdminChatSupport() {
                   placeholder="Type your response..."
                   className="flex-grow"
                 />
-                <Button type="submit" size="icon" >
+                <Button type="submit" size="icon" onClick={(e)=>setIsTyping(true)} >
                   <Send className="h-5 w-5" />
                 </Button>
               </form>

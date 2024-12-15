@@ -4,7 +4,7 @@ import { streamText } from 'ai'
 export const maxDuration = 300 // 5 minutes
 
 export async function POST(req: Request) {
-  const { messages, id } = await req.json()
+  const { messages } = await req.json()
 
   // Here you can implement logic to handle different chat IDs
   // For example, you could use a database to store and retrieve chat history
