@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import localFont from "next/font/local";
+import { signIn } from "next-auth/react";
 const poppins = localFont({
   src: "../../app/fonts/Voltstrom.otf",
   variable: "--font-poppins",
@@ -71,6 +72,7 @@ export  default function SignupFormDemo() {
           <Button
            variant='secondary'
             className="w-[40%] h-10"
+            onClick={()=>signIn('google')}
           >
           
             <Image src='/assets/icons/google.svg' alt="icon" height={18} width={18}/>

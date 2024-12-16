@@ -4,6 +4,12 @@ import React from "react";
 import { ImagesSlider } from "../ui/images-slider";
 import { Button } from "../ui/button";
 import Link from 'next/link'
+import localFont from "next/font/local";
+const poppins = localFont({
+  src: "../../app/fonts/Voltstrom.otf",
+  variable: "--font-poppins",
+  weight: "100 900",
+});
 
 export default function ImagesSliderDemo() {
   const images = [
@@ -27,7 +33,7 @@ export default function ImagesSliderDemo() {
         }}
         className="z-50 flex flex-col justify-center items-center"
       >
-        <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+        <motion.p className={`font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 ${poppins.className}`}>
          Power up your Home with <br/> Our Expert Service 
         </motion.p>
         <div className="flex justify-center items-center gap-4">

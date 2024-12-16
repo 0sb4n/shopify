@@ -41,7 +41,7 @@ const AlertDilog = () => {
     <AlertDialogFooter>
       
    <Link href='/Chat'><Button variant='outline'>lets chat</Button></Link>
-   <Link href='/sign-in'><Button>sign-up</Button>
+   <Link href='/sign-up'><Button>sign-up</Button>
    </Link>
       
     </AlertDialogFooter>

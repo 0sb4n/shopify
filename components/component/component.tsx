@@ -14,7 +14,12 @@ import AlertDilog from "./AlertDilog"
 import ImagesSliderDemo  from "./Hero"
 import { AnimatedTestimonialsDemo } from "./Testimonials"
 import { InfiniteMovingCardsDemo } from "./MoveCard"
-
+import localFont from "next/font/local";
+const poppins = localFont({
+  src: "../../app/fonts/Voltstrom.otf",
+  variable: "--font-poppins",
+  weight: "100 900",
+});
 
 export function Component() {
 
@@ -26,13 +31,13 @@ export function Component() {
       <header className=" z-40 flex fixed lg:w-[80%]  top-3 lg:right-[10rem] w-full   w- backdrop-blur-2xl items-center justify-between h-16 px-4 lg:px-16 rounded-full ">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-8 w-8" />
-          <span className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">TrustedRepairs</span>
+          <span className={`text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 ${poppins.className}`}>TrustedRepairs</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
 {navLink.map((link)=>{
 const isActive =link.route ===pathName
 return(
-          <Link href={link.route} key={link.key} className={`text-md font-bold text-slate-400 hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
+          <Link href={link.route} key={link.key} className={`text-md font-bold text-neutral-300 hover:underline ${isActive ? 'underline':' underline-offset-4'} `} prefetch={false}>
             {link.label}
           </Link>
 ) 
