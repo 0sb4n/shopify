@@ -84,6 +84,7 @@ export  default function SignupFormDemo() {
           <Button
           variant='secondary'
            className="w-[40%] h-[2.6rem]"
+       onClick={()=>signIn('facebook')}
           >
           <Image src='/assets/icons/facebook.svg' alt="icon" height={20} width={20}/>
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
