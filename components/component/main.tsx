@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Input } from '../ui/input'
-import { Search ,MapPin,ShoppingCart, ClipboardList,UserRound,UserRoundPen } from 'lucide-react'
+import { Search ,MapPin,ShoppingCart, ClipboardList,UserRoundPen } from 'lucide-react'
 const Main = () => {
   return (
     <main className='w-full h-screen bg-white'>
