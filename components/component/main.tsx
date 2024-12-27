@@ -1,13 +1,46 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState,useCallback } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { Input } from '../ui/input'
 import { Search ,MapPin,ShoppingCart, ClipboardList,UserRoundPen } from 'lucide-react'
 const Main = () => {
+  const placeholders:any=[
+    "microwave","three-phase motor",",alternater",",crane"
+
+  ]
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
+  const [currentPlaceholder, setCurrentPlaceholder] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  const typeEffect = useCallback(() => {
+    const currentText = placeholders[placeholderIndex]
+    const shouldDelete = currentPlaceholder === currentText || isDeleting
+
+    if (shouldDelete) {
+      setIsDeleting(true)
+      setCurrentPlaceholder((prev) => prev.slice(0, -1))
+    } else {
+      setCurrentPlaceholder((prev) => currentText.slice(0, prev.length + 1))
+    }
+
+    if (!shouldDelete && currentPlaceholder === currentText) {
+      setTimeout(() => setIsDeleting(true), 2000)
+    } else if (isDeleting && currentPlaceholder === '') {
+      setIsDeleting(false)
+      setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
+    }
+  }, [placeholderIndex, currentPlaceholder, isDeleting])
+
+  useEffect(() => {
+    const timer = setTimeout(typeEffect, isDeleting ? 50 : 100)
+    return () => clearTimeout(timer)
+  }, [typeEffect, isDeleting])
+
   return (
     <main className='w-full h-screen bg-white'>
-        <nav className=' h-fit fixed w-full border-b-2 px-10
+        <nav className=' h-fit fixed w-full border-b-2 px-6
          border-gray-200 flex py-4 flex-col md:flex-row justify-center items-center lg:gap-2 gap-4
          
          '>
@@ -19,7 +52,7 @@ const Main = () => {
             <div className="relative">
         <Input
           type="text"
-          placeholder="Search for services"
+          placeholder='use current Location'
           
           className="w-full border-none shadow-xl h-14 pl-10 pr-4 py-2"
           aria-label="Search for services"
@@ -43,8 +76,8 @@ const Main = () => {
          <div className="w-full relative">
         <Input
           type="text"
-          placeholder="Search for services"
-          
+          placeholder={`search for ${currentPlaceholder}`}
+          onBlur={(e)=>setCurrentPlaceholder('service')}
           className="w-full border-none shadow-xl h-14 pl-10 pr-4 py-2"
           aria-label="Search for services"
         />
