@@ -6,9 +6,9 @@ import Link from 'next/link'
 import { Input } from '../ui/input'
 import { TrendingSearches } from './TrendingSearches'
 import { Search ,MapPin,ShoppingCart, ClipboardList,UserRoundPen, } from 'lucide-react'
-import UrbanClapSearchInput from './Test'
+
 const Main = () => {
-  const placeholders:any=[
+  const placeholders=[
     "'microwave'","'three-phase motor'","'alternater'","'crane'"
 
   ]
