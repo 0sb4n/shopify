@@ -7,6 +7,9 @@ import { Input } from '../ui/input'
 import { TrendingSearches } from './TrendingSearches'
 import { Search ,MapPin,ShoppingCart, ClipboardList,UserRoundPen, } from 'lucide-react'
 
+import DynamicSheet from './multicategorySheet'
+
+
 const Main = () => {
   const placeholders=[
     "'microwave'","'three-phase motor'","'alternater'","'crane'"
@@ -25,7 +28,7 @@ const Main = () => {
   const [isFocused, setIsFocused] = useState(false)
   const [showTrending, setShowTrending] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-
+  
   const typeEffect = useCallback(() => {
     if (isFocused) return
 
@@ -71,10 +74,10 @@ const Main = () => {
     setShowTrending(false)
   }
   return (
-    <main className='w-full h-screen bg-white'>
-        <nav className=' h-fit fixed w-full border-b-2 px-6
-         border-gray-200 flex py-4 flex-col md:flex-row justify-center items-center lg:gap-2 gap-4
-         
+    <main className='w-full h-screen bg-white relative'>
+        <nav className=' h-fit fixed bg-white w-full border-b-[1px] px-4
+          border-gray-200 flex py-4 flex-col md:flex-row justify-center items-center lg:gap-2 gap-4
+ z-20
          '>
          <div className='lg:w-[50%] w-full flex  justify-between gap-8 items-center '>
             
@@ -139,7 +142,26 @@ const Main = () => {
       </div>
           </div>
         </nav>
-      {/* <UrbanClapSearchInput/> */}
+     <section className=' w-full absolute top-24 left-0 h-screen flex flex-col lg:flex-row lg:justify-center items-center  gap-4 px-14'>
+       <div className=' w-full lg:w-[50%] flex flex-col gap-4 mt-16'>
+        <h1 className=' text-2xl lg:text-4xl font-semibold'>Home services at  your <br />doorstep</h1>
+        <div className='w-full lg:w-[70%] h-fit border-[10px] flex flex-col p-2 gap-4 rounded-lg shadow-xl'>
+         <h3 className='font-semibold'>What are you looking for?</h3>
+         <div className='w-full flex justify-center items-center gap-4'>
+          <DynamicSheet/>
+         
+          
+         
+         </div>
+        </div>
+       </div>
+       <div className=" w-[50%] grid grid-rows-3 grid-flow-col gap-4">
+ <div className='grid-cols-3 h-16 bg-slate-300'></div>
+ <div className='grid-cols-2  h-20 bg-slate-400 '></div>
+ <div className='grid-cols-2 grid-flow-col h-20 bg-slate-400 '></div>
+</div>
+
+     </section>
     </main>
   )
 }

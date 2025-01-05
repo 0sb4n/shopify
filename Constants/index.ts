@@ -1,7 +1,34 @@
-import nodemailer from "nodemailer"
 
-
-
+export const categoryButton=[
+  {
+    "imagePath": "/assets/icons/home.svg",
+    "text": "Ac & Appliance Repair"
+  },
+  {
+    "imagePath": "/assets/icons/customer.svg",
+    "text": "Home service"
+  },
+  {
+    "imagePath": "/assets/icons/industry.svg",
+    "text": "Home service"
+  },
+  {
+    "imagePath": "/assets/icons/industry.svg",
+    "text": "Home service"
+  },
+  {
+    "imagePath": "/assets/icons/industry.svg",
+    "text": "Home service"
+  },
+  {
+    "imagePath": "/assets/icons/industry.svg",
+    "text": "Home service"
+  },
+  {
+    "imagePath": "/assets/icons/industry.svg",
+    "text": "Home service"
+  }
+]
 
 export const navLink =[
     {
