@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Home, Building2, User, Car, Utensils, Briefcase, Scissors, Laptop, Shirt, Palette } from 'lucide-react'
+import {  Laptop, Shirt, Palette } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
