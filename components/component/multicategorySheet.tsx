@@ -15,7 +15,7 @@ import Image from "next/image"
 
 
 const categories = {
-  home: [
+  homeappliances: [
     { name: "Cleaning", icon: "🧹" },
     { name: "Plumbing", icon: "🚰" },
     { name: "Electrical", icon: "⚡" },
@@ -80,7 +80,7 @@ const categories = {
 type CategoryType = keyof typeof categories
 
 const categoryIcons = {
-  home: <Image src='/assets/icons/home.svg' alt='icon' height={26} width={26}/>,
+  homeappliances: <Image src='/assets/icons/home.svg' alt='icon' height={26} width={26}/>,
   commercial: <Image src='/assets/icons/home.svg' alt='icon' height={26} width={26}/>,
   personal: <Image src='/assets/icons/home.svg' alt='icon' height={26} width={26}/>,
   transport: <Image src='/assets/icons/home.svg' alt='icon' height={26} width={26}/>,
@@ -96,7 +96,7 @@ export default function UrbanCategories() {
   const [openCategory, setOpenCategory] = useState<CategoryType | null>(null)
 
   return (
-    <div className="p-4">
+    <div className=" p-4">
       <div className="grid grid-cols-3 gap-4">
         {(Object.keys(categories) as CategoryType[]).map((category) => (
           <Sheet
