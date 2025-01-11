@@ -1,4 +1,4 @@
-"use client"
+ko"use client"
 import React, { useEffect, useState,useCallback,useRef } from 'react'
 
 import Image from 'next/image'
@@ -156,7 +156,7 @@ const Main = () => {
          </div>
         </div>
        </div>
-       <div className="w-full lg:w-[70%] md:w-[70%] hidden lg:block md:block">
+       <div className="w-[50%] h-full lg:w-[70%] md:w-[70%] hidden lg:block md:block">
 <LayoutGridDemo/>
 </div>
 
