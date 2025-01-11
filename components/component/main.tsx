@@ -156,7 +156,7 @@ const Main = () => {
          </div>
         </div>
        </div>
-       <div className=" lg:w-[70%] md:w-[70%] hidden lg:block md:block">
+       <div className="w-full lg:w-[70%] md:w-[70%] hidden lg:block md:block">
 <LayoutGridDemo/>
 </div>
 
