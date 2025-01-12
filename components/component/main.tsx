@@ -133,32 +133,32 @@ const Main = () => {
               </li>
           
           </ul> */}
-
+     
+      </div>
+      <div className='flex justify-center gap-6 items-center'>
+      <ClipboardList className='text-purple-400  lg:inline-block hidden '/>
+         
+         <div className='border-4 border-gray-300 shadow-xl p-2 rounded-full'><ShoppingCart className='text-purple-400 '/></div>
+         <UserRoundPen className='text-purple-400 md:inline-block hidden'/>
+      </div>
           </div>
-          <div className='flex justify-center gap-6 items-center'>
-            <ClipboardList className='text-purple-400  lg:inline-block hidden ' />
-
-            <div className='border-4 border-gray-300 shadow-xl p-2 rounded-full'><ShoppingCart className='text-purple-400 ' /></div>
-            <UserRoundPen className='text-purple-400 md:inline-block hidden' />
-          </div>
+        </nav>
+     <section className=' w-full absolute top-32 lg:top-6 md:top-6  left-0 h-screen flex flex-col lg:flex-row md:flex-row lg:justify-center items-center  gap-4 px-4 lg:px-14'>
+       <div className=' w-full lg:w-[50%] md:w-[50%] flex flex-col gap-4 mt-16'>
+        <h1 className=' text-2xl lg:text-4xl font-[600]'>Home services at  your <br />doorstep</h1>
+        <div className='w-full lg:w-[90%]  h-fit border-[10px] flex flex-col p-2 gap-4 rounded-lg shadow-xl'>
+         <h3 className='font-semibold'>What are you looking for?</h3>
+         <div className='w-full flex justify-center items-center gap-4'>
+          <DynamicSheet/>
+         
+          
+         
+         </div>
         </div>
-      </nav>
-      <section className=' w-full absolute top-32 lg:top-6 md:top-6  left-0 h-screen flex flex-col lg:flex-row md:flex-col justify-center items-center  gap-4 px-4 lg:px-14'>
-        <div className='w-full lg:w-[50%] md:w-[50%] flex flex-col gap-4 items-center justify-center'>
-          <h1 className=' text-2xl lg:text-4xl font-[600]'>Home services at  your <br />doorstep</h1>
-          <div className='w-full lg:w-[90%]  h-fit border-[10px] flex flex-col p-2 gap-4 rounded-lg shadow-xl'>
-            <h3 className='font-semibold'>What are you looking for?</h3>
-            <div className='w-full flex justify-center items-center gap-4'>
-              <DynamicSheet />
-
-
-
-            </div>
-          </div>
-        </div>
-        <div className="w-[50%] h-full flex justify-center items-center">
-          <LayoutGridDemo />
-        </div>
+       </div>
+       <div className=" lg:w-[70%] md:w-[70%] hidden lg:block md:block">
+<LayoutGridDemo/>
+</div>
 
       </section>
     </main>
