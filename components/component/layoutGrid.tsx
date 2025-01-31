@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { LayoutGrid } from "../ui/layout-grid";
 
 export function LayoutGridDemo() {
   return (
-    <div >
+    <div className="h-screen py-20 w-full">
       <LayoutGrid cards={cards} />
     </div>
   );
@@ -74,28 +74,27 @@ const cards = [
     id: 1,
     content: <SkeletonOne />,
     className: "md:col-span-2",
-    thumbnail:
-     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9eIGM3BUPsyGOrKy9GkUuDonJ9ylG-z4Qw&s'
+    thumbnail:'/assets/images/generetor.jpg'
   },
   {
     id: 2,
     content: <SkeletonTwo />,
     className: "col-span-1",
-    thumbnail:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCCLNJWFdw3eOn_EQ_nbRA3jIpsrrOYAB1A&s",
+    thumbnail:'/assets/images/big1.jpg'
+     
   },
   {
     id: 3,
     content: <SkeletonThree />,
     className: "col-span-1",
-    thumbnail:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCCLNJWFdw3eOn_EQ_nbRA3jIpsrrOYAB1A&s",
+    thumbnail:'/assets/images/slider1.jpg'
+     
   },
   {
     id: 4,
     content: <SkeletonFour />,
     className: "md:col-span-2",
-    thumbnail:
-      "	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDATfafIU9FwxXmggXGnXM1RXawe3gzHrUhA&s",
+    thumbnail:'/assets/images/big.jpg'
+      
   },
 ];

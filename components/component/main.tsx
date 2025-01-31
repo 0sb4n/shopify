@@ -8,7 +8,12 @@ import { TrendingSearches } from './TrendingSearches'
 import { Search, MapPin, ShoppingCart, ClipboardList, UserRoundPen, } from 'lucide-react'
 
 import DynamicSheet from './multicategorySheet'
-import { LayoutGridDemo } from './layoutGrid'
+
+import { LayoutGridDemo } from './layoutgrid'
+import { AnimatedTestimonialsDemo } from './Testimonials'
+import { InfiniteMovingCardsDemo } from './MoveCard'
+
+
 
 
 const Main = () => {
@@ -143,11 +148,11 @@ const Main = () => {
       </div>
           </div>
         </nav>
-     <section className=' w-full absolute top-32 lg:top-6 md:top-6  left-0 h-screen flex flex-col lg:flex-row md:flex-row lg:justify-center items-center  gap-4 px-4 lg:px-14'>
-       <div className=' w-full lg:w-[50%] md:w-[50%] flex flex-col gap-4 mt-16'>
-        <h1 className=' text-2xl lg:text-4xl font-[600]'>Home services at  your <br />doorstep</h1>
-        <div className='w-full lg:w-[90%]  h-fit border-[10px] flex flex-col p-2 gap-4 rounded-lg shadow-xl'>
-         <h3 className='font-semibold'>What are you looking for?</h3>
+        <section className='w-full h-full lg:flex-row md:flex-row flex-col items-center  flex justify-around pt-6 lg:pt-0 md:pt-0 relative top-[11rem] lg:top-[3rem] px-4 md:top-[3rem] '>
+       
+       <div className='flex-col flex items-start gap-4 '>
+        <h1 className='text-4xl font-semibold'>Home services at your <br /> doorstep</h1> <div className='md:w-[26rem] lg:w-[26rem] w-full  h-fit p-4 border-[1px]  shadow-2xl rounded-md'>
+         <h3 className=' text-lg font-semibold'>What are you looking for?</h3>
          <div className='w-full flex justify-center items-center gap-4'>
           <DynamicSheet/>
          
@@ -155,12 +160,18 @@ const Main = () => {
          
          </div>
         </div>
-       </div>
-       <div className=" lg:w-[70%] md:w-[70%] hidden lg:block md:block">
-<LayoutGridDemo/>
-</div>
+        </div>
+        <div className='w-[100%] lg:w-[50%] md:w-[70%] flex items-center justify-center'>
+        <LayoutGridDemo/>
+          </div>
+        </section>
+        <section className=''>
 
-      </section>
+       <AnimatedTestimonialsDemo/>
+       <InfiniteMovingCardsDemo/>
+        </section>
+
+     
     </main>
   )
 }
