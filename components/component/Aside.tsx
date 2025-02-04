@@ -2,7 +2,7 @@
 import React from "react";
 import { LayoutGrid } from "../ui/layout-grid";
 
-export function LayoutGridDemo() {
+export  function LayoutGridDemo() {
   return (
     <div className="h-screen py-20 w-full">
       <LayoutGrid cards={cards} />
