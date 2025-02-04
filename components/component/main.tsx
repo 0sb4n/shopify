@@ -9,7 +9,7 @@ import { Search, MapPin, ShoppingCart, ClipboardList, UserRoundPen, } from 'luci
 
 import DynamicSheet from './multicategorySheet'
 
-import { LayoutGridDemo } from '@/components/component/layoutgrid'
+import { LayoutGridDemo } from './layoutgrid'
 import { AnimatedTestimonialsDemo } from './Testimonials'
 import { InfiniteMovingCardsDemo } from './MoveCard'
 
